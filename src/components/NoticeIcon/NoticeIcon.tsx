@@ -1,12 +1,13 @@
-import { BellOutlined } from '@ant-design/icons';
 import { Badge, Spin, Tabs } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
-import React from 'react';
-import classNames from 'classnames';
+
+import { BellOutlined } from '@ant-design/icons';
+import HeaderDropdown from '../HeaderDropdown';
 import type { NoticeIconTabProps } from './NoticeList';
 import NoticeList from './NoticeList';
-import HeaderDropdown from '../HeaderDropdown';
+import React from 'react';
+import classNames from 'classnames';
 import styles from './index.less';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 
 const { TabPane } = Tabs;
 
@@ -31,18 +32,9 @@ export type NoticeIconProps = {
 
 const NoticeIcon: React.FC<NoticeIconProps> & {
   Tab: typeof NoticeList;
-} = (props) => {
+} = props => {
   const getNotificationBox = (): React.ReactNode => {
-    const {
-      children,
-      loading,
-      onClear,
-      onTabChange,
-      onItemClick,
-      onViewMore,
-      clearText,
-      viewMoreText,
-    } = props;
+    const { children, loading, onClear, onTabChange, onItemClick, onViewMore, clearText, viewMoreText } = props;
     if (!children) {
       return null;
     }
@@ -69,7 +61,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
             showViewMore={showViewMore}
             title={title}
           />
-        </TabPane>,
+        </TabPane>
       );
     });
     return (
@@ -87,7 +79,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
 
   const [visible, setVisible] = useMergedState<boolean>(false, {
     value: props.popupVisible,
-    onChange: props.onPopupVisibleChange,
+    onChange: props.onPopupVisibleChange
   });
   const noticeButtonClass = classNames(className, styles.noticeButton);
   const notificationBox = getNotificationBox();
@@ -104,21 +96,14 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
   }
 
   return (
-    <HeaderDropdown
-      placement="bottomRight"
-      overlay={notificationBox}
-      overlayClassName={styles.popover}
-      trigger={['click']}
-      visible={visible}
-      onVisibleChange={setVisible}
-    >
+    <HeaderDropdown placement="bottomRight" overlay={notificationBox} overlayClassName={styles.popover} trigger={['click']} visible={visible} onVisibleChange={setVisible}>
       {trigger}
     </HeaderDropdown>
   );
 };
 
 NoticeIcon.defaultProps = {
-  emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg',
+  emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
 };
 
 NoticeIcon.Tab = NoticeList;

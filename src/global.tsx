@@ -1,6 +1,7 @@
 import { Button, message, notification } from 'antd';
-import { useIntl } from 'umi';
+
 import defaultSettings from '../config/defaultSettings';
+import { useIntl } from 'umi';
 
 const { pwa } = defaultSettings;
 const isHttps = document.location.protocol === 'https:';
@@ -10,12 +11,12 @@ const clearCache = () => {
   if (window.caches) {
     caches
       .keys()
-      .then((keys) => {
-        keys.forEach((key) => {
+      .then(keys => {
+        keys.forEach(key => {
           caches.delete(key);
         });
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   }
 };
 
@@ -39,7 +40,7 @@ if (pwa) {
       // Send skip-waiting event to waiting SW with MessageChannel
       await new Promise((resolve, reject) => {
         const channel = new MessageChannel();
-        channel.port1.onmessage = (msgEvent) => {
+        channel.port1.onmessage = msgEvent => {
           if (msgEvent.data.error) {
             reject(msgEvent.data.error);
           } else {
@@ -70,20 +71,20 @@ if (pwa) {
       description: useIntl().formatMessage({ id: 'app.pwa.serviceworker.updated.hint' }),
       btn,
       key,
-      onClose: async () => null,
+      onClose: async () => null
     });
   });
 } else if ('serviceWorker' in navigator && isHttps) {
   // unregister service worker
   const { serviceWorker } = navigator;
   if (serviceWorker.getRegistrations) {
-    serviceWorker.getRegistrations().then((sws) => {
-      sws.forEach((sw) => {
+    serviceWorker.getRegistrations().then(sws => {
+      sws.forEach(sw => {
         sw.unregister();
       });
     });
   }
-  serviceWorker.getRegistration().then((sw) => {
+  serviceWorker.getRegistration().then(sw => {
     if (sw) sw.unregister();
   });
 

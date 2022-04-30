@@ -2,17 +2,19 @@
 
 import defaultSettings from './defaultSettings';
 import { defineConfig } from 'umi';
-import proxy from './proxy';
 import routes from './routes';
 
-const { REACT_APP_ENV } = process.env;
+// import proxy from './proxy';
+
+// const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
   access: {},
   antd: {},
-  // dva: {
-  //   hmr: true
-  // },
+  dva: {
+    hmr: true,
+    immer: { enableES5: true }
+  },
   dynamicImport: {
     loading: '@ant-design/pro-layout/es/PageLoading'
   },
@@ -29,12 +31,11 @@ export default defineConfig({
   layout: {
     // https://umijs.org/zh-CN/plugins/plugin-layout
     locale: true,
-    siderWidth: 208,
+    siderWidth: 210,
     ...defaultSettings
   },
   // https://umijs.org/zh-CN/plugins/plugin-locale
   locale: {
-    // default zh-CN
     default: 'zh-CN',
     antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
@@ -59,6 +60,6 @@ export default defineConfig({
     'root-entry-name': 'variable'
   },
   title: false,
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  // proxy: proxy[REACT_APP_ENV || 'dev'],
   webpack5: {}
 });

@@ -5,10 +5,10 @@ import { PageContainer } from '@ant-design/pro-layout';
 import React from 'react';
 import styles from './Welcome.less';
 
-const CodePreview: React.FC = ({ children }) => (
+const CodePreview: React.FC<{ children: string }> = props => (
   <pre className={styles.pre}>
     <code>
-      <Typography.Text copyable>{children}</Typography.Text>
+      <Typography.Text copyable>{props.children}</Typography.Text>
     </code>
   </pre>
 );

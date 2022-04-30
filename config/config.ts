@@ -8,11 +8,24 @@ import routes from './routes';
 const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
-  hash: true,
+  access: {},
   antd: {},
-  dva: {
-    hmr: true
+  // dva: {
+  //   hmr: true
+  // },
+  dynamicImport: {
+    loading: '@ant-design/pro-layout/es/PageLoading'
   },
+  // esbuild is father build tools
+  // https://umijs.org/plugins/plugin-esbuild
+  esbuild: {},
+  exportStatic: {},
+  favicon: './favicon.ico',
+  // Fast Refresh 热更新
+  fastRefresh: {},
+  forkTSChecker: {},
+  hash: true,
+  ignoreMomentLocale: true,
   layout: {
     // https://umijs.org/zh-CN/plugins/plugin-layout
     locale: true,
@@ -27,15 +40,17 @@ export default defineConfig({
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true
   },
-  dynamicImport: {
-    loading: '@ant-design/pro-layout/es/PageLoading'
+  manifest: {
+    basePath: '/'
   },
+  mfsu: {},
+  nodeModulesTransform: { type: 'none' },
+
+  // umi routes: https://umijs.org/docs/routing
+  routes,
   targets: {
     ie: 11
   },
-  // umi routes: https://umijs.org/docs/routing
-  routes,
-  access: {},
   // Theme for antd: https://ant.design/docs/react/customize-theme-cn
   theme: {
     // 如果不想要 configProvide 动态设置主题需要把这个设置为 default
@@ -43,19 +58,7 @@ export default defineConfig({
     // https://ant.design/docs/react/customize-theme-variable-cn
     'root-entry-name': 'variable'
   },
-  // esbuild is father build tools
-  // https://umijs.org/plugins/plugin-esbuild
-  esbuild: {},
   title: false,
-  ignoreMomentLocale: true,
   proxy: proxy[REACT_APP_ENV || 'dev'],
-  manifest: {
-    basePath: '/'
-  },
-  // Fast Refresh 热更新
-  fastRefresh: {},
-  nodeModulesTransform: { type: 'none' },
-  mfsu: {},
-  webpack5: {},
-  exportStatic: {}
+  webpack5: {}
 });

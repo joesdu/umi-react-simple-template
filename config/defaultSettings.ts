@@ -5,8 +5,7 @@ const Settings: LayoutSettings & {
   logo?: string;
 } = {
   navTheme: 'realDark',
-  // 拂晓蓝
-  primaryColor: '#1890ff',
+  primaryColor: '#FA541C',
   layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,

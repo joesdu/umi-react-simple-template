@@ -8,7 +8,7 @@ export async function currentUser(options?: { [key: string]: any }) {
     data: API.CurrentUser;
   }>('/api/currentUser', {
     method: 'GET',
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -16,7 +16,7 @@ export async function currentUser(options?: { [key: string]: any }) {
 export async function outLogin(options?: { [key: string]: any }) {
   return request<Record<string, any>>('/api/login/outLogin', {
     method: 'POST',
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -25,10 +25,10 @@ export async function login(body: API.LoginParams, options?: { [key: string]: an
   return request<API.LoginResult>('/api/login/account', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     data: body,
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -36,7 +36,7 @@ export async function login(body: API.LoginParams, options?: { [key: string]: an
 export async function getNotices(options?: { [key: string]: any }) {
   return request<API.NoticeIconList>('/api/notices', {
     method: 'GET',
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -49,14 +49,14 @@ export async function rule(
     /** 页面的容量 */
     pageSize?: number;
   },
-  options?: { [key: string]: any },
+  options?: { [key: string]: any }
 ) {
   return request<API.RuleList>('/api/rule', {
     method: 'GET',
     params: {
-      ...params,
+      ...params
     },
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -64,7 +64,7 @@ export async function rule(
 export async function updateRule(options?: { [key: string]: any }) {
   return request<API.RuleListItem>('/api/rule', {
     method: 'PUT',
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -72,7 +72,7 @@ export async function updateRule(options?: { [key: string]: any }) {
 export async function addRule(options?: { [key: string]: any }) {
   return request<API.RuleListItem>('/api/rule', {
     method: 'POST',
-    ...(options || {}),
+    ...(options || {})
   });
 }
 
@@ -80,6 +80,6 @@ export async function addRule(options?: { [key: string]: any }) {
 export async function removeRule(options?: { [key: string]: any }) {
   return request<Record<string, any>>('/api/rule', {
     method: 'DELETE',
-    ...(options || {}),
+    ...(options || {})
   });
 }

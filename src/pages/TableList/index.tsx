@@ -1,16 +1,17 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, message, Input, Drawer } from 'antd';
-import React, { useState, useRef } from 'react';
-import { useIntl, FormattedMessage } from 'umi';
-import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
-import type { ProColumns, ActionType } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ActionType, ProColumns } from '@ant-design/pro-table';
+import { Button, Drawer, Input, message } from 'antd';
+import { FooterToolbar, PageContainer } from '@ant-design/pro-layout';
+import { FormattedMessage, useIntl } from 'umi';
 import { ModalForm, ProFormText, ProFormTextArea } from '@ant-design/pro-form';
-import type { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
-import ProDescriptions from '@ant-design/pro-descriptions';
+import React, { useRef, useState } from 'react';
+import { addRule, removeRule, rule, updateRule } from '@/services/ant-design-pro/api';
+
 import type { FormValueType } from './components/UpdateForm';
+import { PlusOutlined } from '@ant-design/icons';
+import ProDescriptions from '@ant-design/pro-descriptions';
+import type { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
+import ProTable from '@ant-design/pro-table';
 import UpdateForm from './components/UpdateForm';
-import { rule, addRule, updateRule, removeRule } from '@/services/ant-design-pro/api';
 
 /**
  * @en-US Add node

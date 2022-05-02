@@ -14,18 +14,49 @@
 // 滚动条样式,仅在基于 Blink 或 WebKit 的浏览器(例如:Chrome、Edge、Opera、Safari、iOS 上所有的浏览器,以及其它基于 WebKit 的浏览器)上可用
 // 参考链接:https://developer.mozilla.org/zh-CN/docs/Web/CSS/::-webkit-scrollbar
 //         https://mdbootstrap.com/snippets/standard/marveluck/3498209/?utm_source=GitHub&utm_medium=PerfectScrollbar
+
+/*
+ * Scrollbar默认的样式必须包含
+ */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
   background-color: transparent;
 }
-
+/*
+ * Scrollbar两端按钮的样式
+ */
+// ::-webkit-scrollbar-button
+/*
+ * Scrollbar滑块的样式
+ */
 ::-webkit-scrollbar-thumb {
   background-color: @primary-color;
   border-radius: 6px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
-
+/*
+ * Scrollbar滑轨的样式
+ */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+/*
+ * Scrollbar滑块鼠标移动上去的样式
+ */
+::-webkit-scrollbar-thumb:hover {
+  background: #9e9e9e;
+}
+/*
+ * Scrollbar滑块点击激活时候的样式
+ */
+::-webkit-scrollbar-thumb:active {
+  background: @primary-color;
+}
+/*
+ * 横向滚动条和纵向滚动条相交处尖角的颜色
+ */
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 // ----------------------------------------------------

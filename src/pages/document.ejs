@@ -18,11 +18,14 @@
       content="
       Out-of-the-box mid-stage front-end/design solution."
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
     <title>Ant Design Pro</title>
     <link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
   </head>
-  <body onselectstart="return false">
+  <body>
     <noscript>
       <div class="noscript-container">
         Hi there! Please
@@ -53,7 +56,8 @@
           justify-content: center;
           margin-top: 90px;
           font-size: 20px;
-          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
+            Geneva, Verdana, sans-serif;
         }
         .noscript-enableJS {
           padding-right: 3px;
@@ -83,7 +87,8 @@
           -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
           transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
           transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
+            -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
           -webkit-font-feature-settings: 'tnum';
           font-feature-settings: 'tnum';
         }
@@ -198,15 +203,31 @@
           }
         }
       </style>
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 420px">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          min-height: 420px;
+        "
+      >
         <img src="<%= context.config.publicPath +'pro_icon.svg'%>" alt="logo" width="256" />
         <div class="page-loading-warp">
           <div class="ant-spin ant-spin-lg ant-spin-spinning">
-            <span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i></span>
+            <span class="ant-spin-dot ant-spin-dot-spin"
+              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+            ></span>
           </div>
         </div>
         <div style="display: flex; align-items: center; justify-content: center">
-          <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" width="32" style="margin-right: 8px" />
+          <img
+            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            width="32"
+            style="margin-right: 8px"
+          />
           Ant Design
         </div>
       </div>

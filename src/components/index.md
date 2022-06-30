@@ -17,7 +17,6 @@ sidemenu: false
 /**
  * background: '#f0f2f5'
  */
-import React from 'react';
 import Footer from '@/components/Footer';
 
 export default () => <Footer />;
@@ -31,9 +30,8 @@ HeaderDropdown 是 antd Dropdown 的封装，但是增加了移动端的特殊�
 /**
  * background: '#f0f2f5'
  */
-import { Button, Menu } from 'antd';
-import React from 'react';
 import HeaderDropdown from '@/components/HeaderDropdown';
+import { Button, Menu } from 'antd';
 
 export default () => {
   const menuHeaderDropdown = (
@@ -60,8 +58,6 @@ export default () => {
 /**
  * background: '#f0f2f5'
  */
-import { Button, Menu } from 'antd';
-import React from 'react';
 import HeaderSearch from '@/components/HeaderSearch';
 
 export default () => {
@@ -73,18 +69,18 @@ export default () => {
         { label: 'Ant Design Pro', value: 'Ant Design Pro' },
         {
           label: 'Ant Design',
-          value: 'Ant Design'
+          value: 'Ant Design',
         },
         {
           label: 'Pro Table',
-          value: 'Pro Table'
+          value: 'Pro Table',
         },
         {
           label: 'Pro Layout',
-          value: 'Pro Layout'
-        }
+          value: 'Pro Layout',
+        },
       ]}
-      onSearch={value => {
+      onSearch={(value) => {
         console.log('input', value);
       }}
     />
@@ -112,9 +108,8 @@ export default () => {
 /**
  * background: '#f0f2f5'
  */
-import { message } from 'antd';
-import React from 'react';
 import NoticeIcon from '@/components/NoticeIcon/NoticeIcon';
+import { message } from 'antd';
 
 export default () => {
   const list = [
@@ -123,20 +118,20 @@ export default () => {
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png',
       title: '你收到了 14 份新周报',
       datetime: '2017-08-09',
-      type: 'notification'
+      type: 'notification',
     },
     {
       id: '000000002',
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png',
       title: '你推荐的 曲妮妮 已通过第三轮面试',
       datetime: '2017-08-08',
-      type: 'notification'
-    }
+      type: 'notification',
+    },
   ];
   return (
     <NoticeIcon
       count={10}
-      onItemClick={item => {
+      onItemClick={(item) => {
         message.info(`${item.title} 被点击了`);
       }}
       onClear={(title: string, key: string) => message.info('点击了清空更多')}
@@ -146,9 +141,30 @@ export default () => {
       onViewMore={() => message.info('点击了查看更多')}
       clearClose
     >
-      <NoticeIcon.Tab tabKey="notification" count={2} list={list} title="通知" emptyText="你已查看所有通知" showViewMore />
-      <NoticeIcon.Tab tabKey="message" count={2} list={list} title="消息" emptyText="您已读完所有消息" showViewMore />
-      <NoticeIcon.Tab tabKey="event" title="待办" emptyText="你已完成所有待办" count={2} list={list} showViewMore />
+      <NoticeIcon.Tab
+        tabKey="notification"
+        count={2}
+        list={list}
+        title="通知"
+        emptyText="你已查看所有通知"
+        showViewMore
+      />
+      <NoticeIcon.Tab
+        tabKey="message"
+        count={2}
+        list={list}
+        title="消息"
+        emptyText="您已读完所有消息"
+        showViewMore
+      />
+      <NoticeIcon.Tab
+        tabKey="event"
+        title="待办"
+        emptyText="你已完成所有待办"
+        count={2}
+        list={list}
+        showViewMore
+      />
     </NoticeIcon>
   );
 };
@@ -156,20 +172,20 @@ export default () => {
 
 ### NoticeIcon API
 
-| 参数                 | 说明                       | 类型                                                               | 默认值 |
-| -------------------- | -------------------------- | ------------------------------------------------------------------ | ------ |
-| count                | 有多少未读通知             | `number`                                                           | -      |
-| bell                 | 铃铛的图表                 | `ReactNode`                                                        | -      |
-| onClear              | 点击清空数据按钮           | `(tabName: string, tabKey: string) => void`                        | -      |
-| onItemClick          | 未读消息列被点击           | `(item: API.NoticeIconData, tabProps: NoticeIconTabProps) => void` | -      |
-| onViewMore           | 查看更多的按钮点击         | `(tabProps: NoticeIconTabProps, e: MouseEvent) => void`            | -      |
-| onTabChange          | 通知 Tab 的切换            | `(tabTile: string) => void;`                                       | -      |
-| popupVisible         | 通知显示是否展示           | `boolean`                                                          | -      |
-| onPopupVisibleChange | 通知信息显示隐藏的回调函数 | `(visible: boolean) => void`                                       | -      |
-| clearText            | 清空按钮的文字             | `string`                                                           | -      |
-| viewMoreText         | 查看更多的按钮文字         | `string`                                                           | -      |
-| clearClose           | 展示清空按钮               | `boolean`                                                          | -      |
-| emptyImage           | 列表为空时的兜底展示       | `ReactNode`                                                        | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| count | 有多少未读通知 | `number` | - |
+| bell | 铃铛的图表 | `ReactNode` | - |
+| onClear | 点击清空数据按钮 | `(tabName: string, tabKey: string) => void` | - |
+| onItemClick | 未读消息列被点击 | `(item: API.NoticeIconData, tabProps: NoticeIconTabProps) => void` | - |
+| onViewMore | 查看更多的按钮点击 | `(tabProps: NoticeIconTabProps, e: MouseEvent) => void` | - |
+| onTabChange | 通知 Tab 的切换 | `(tabTile: string) => void;` | - |
+| popupVisible | 通知显示是否展示 | `boolean` | - |
+| onPopupVisibleChange | 通知信息显示隐藏的回调函数 | `(visible: boolean) => void` | - |
+| clearText | 清空按钮的文字 | `string` | - |
+| viewMoreText | 查看更多的按钮文字 | `string` | - |
+| clearClose | 展示清空按钮 | `boolean` | - |
+| emptyImage | 列表为空时的兜底展示 | `ReactNode` | - |
 
 ### NoticeIcon.Tab API
 
@@ -218,16 +234,16 @@ RightContent 是以上几个组件的组合，同时新增了 plugins 的 `Selec
       { label: <a href="https://umijs.org/zh/guide/umi-ui.html">umi ui</a>, value: 'umi ui' },
       {
         label: <a href="next.ant.design">Ant Design</a>,
-        value: 'Ant Design'
+        value: 'Ant Design',
       },
       {
         label: <a href="https://protable.ant.design/">Pro Table</a>,
-        value: 'Pro Table'
+        value: 'Pro Table',
       },
       {
         label: <a href="https://prolayout.ant.design/">Pro Layout</a>,
-        value: 'Pro Layout'
-      }
+        value: 'Pro Layout',
+      },
     ]}
   />
   <Tooltip title="使用文档">

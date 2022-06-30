@@ -1,5 +1,5 @@
 import { Alert, Card, Typography } from 'antd';
-import { FormattedMessage, useIntl } from 'umi';
+import { FormattedMessage, useIntl } from '@umijs/max';
 
 import { PageContainer } from '@ant-design/pro-layout';
 import React from 'react';
@@ -46,11 +46,11 @@ const Welcome: React.FC = () => {
           }}
         >
           <FormattedMessage id="pages.welcome.advancedLayout" defaultMessage="Advanced layout" />{' '}
-          <a href="https://procomponents.ant.design/components/layout" rel="noopener noreferrer" target="__blank">
+          <a href="https://procomponents.ant.design/components" rel="noopener noreferrer" target="__blank">
             <FormattedMessage id="pages.welcome.link" defaultMessage="Welcome" />
           </a>
         </Typography.Text>
-        <CodePreview>yarn add @ant-design/pro-layout</CodePreview>
+        <CodePreview>yarn add @ant-design/pro-components</CodePreview>
       </Card>
     </PageContainer>
   );

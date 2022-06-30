@@ -1,4 +1,4 @@
-import { SelectLang, useModel } from 'umi';
+import { SelectLang, useModel } from '@umijs/max';
 
 import Avatar from './AvatarDropdown';
 import HeaderSearch from '../HeaderSearch';

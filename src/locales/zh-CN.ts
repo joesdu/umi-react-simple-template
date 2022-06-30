@@ -21,5 +21,5 @@ export default {
   ...settingDrawer,
   ...settings,
   ...pwa,
-  ...component
+  ...component,
 };

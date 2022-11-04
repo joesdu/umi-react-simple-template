@@ -1,11 +1,15 @@
 import { Settings as LayoutSettings } from '@ant-design/pro-components';
 
+/**
+ * @name
+ */
 const Settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
 } = {
   navTheme: 'realDark',
-  primaryColor: '#FA541C',
+  // 拂晓蓝
+  colorPrimary: '#FA541C',
   layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,
@@ -15,8 +19,6 @@ const Settings: LayoutSettings & {
   pwa: false,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   iconfontUrl: '',
-  headerHeight: 48,
-  splitMenus: false
 };
 
 export default Settings;

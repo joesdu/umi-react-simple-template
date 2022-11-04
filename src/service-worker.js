@@ -3,7 +3,7 @@
 /* globals workbox */
 workbox.core.setCacheNameDetails({
   prefix: 'antd-pro',
-  suffix: 'v5'
+  suffix: 'v5',
 });
 // Control all opened tabs ASAP
 workbox.clientsClaim();
@@ -32,12 +32,18 @@ workbox.routing.registerNavigationRoute('/index.html');
 workbox.routing.registerRoute(/\/api\//, workbox.strategies.networkFirst());
 
 /** Handle third party requests */
-workbox.routing.registerRoute(/^https:\/\/gw\.alipayobjects\.com\//, workbox.strategies.networkFirst());
-workbox.routing.registerRoute(/^https:\/\/cdnjs\.cloudflare\.com\//, workbox.strategies.networkFirst());
+workbox.routing.registerRoute(
+  /^https:\/\/gw\.alipayobjects\.com\//,
+  workbox.strategies.networkFirst(),
+);
+workbox.routing.registerRoute(
+  /^https:\/\/cdnjs\.cloudflare\.com\//,
+  workbox.strategies.networkFirst(),
+);
 workbox.routing.registerRoute(/\/color.less/, workbox.strategies.networkFirst());
 
 /** Response to client after skipping waiting with MessageChannel */
-addEventListener('message', event => {
+addEventListener('message', (event) => {
   const replyPort = event.ports[0];
   const message = event.data;
   if (replyPort && message && message.type === 'skip-waiting') {
@@ -45,15 +51,15 @@ addEventListener('message', event => {
       self.skipWaiting().then(
         () => {
           replyPort.postMessage({
-            error: null
+            error: null,
           });
         },
-        error => {
+        (error) => {
           replyPort.postMessage({
-            error
+            error,
           });
-        }
-      )
+        },
+      ),
     );
   }
 });
